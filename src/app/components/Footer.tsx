@@ -1,86 +1,72 @@
-import { Github, Linkedin, Mail, Twitter, Heart } from "lucide-react";
+import { Github, Linkedin, Mail, Twitter } from "lucide-react";
 
 export function Footer() {
+  const handleNav = (href: string) => {
+    const el = document.querySelector(href);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
-    <footer className="bg-black border-t border-gray-800 py-12 px-4">
+    <footer className="bg-[#020617] border-t border-white/[0.06] py-12 px-4">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          {/* Brand */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="text-3xl">🚀</div>
-              <span className="text-xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
-                Seu Nome
+            <div className="flex items-center gap-2 mb-3">
+              <span className="text-sm font-semibold tracking-widest text-slate-200 uppercase">
+                Portfolio
               </span>
             </div>
-            <p className="text-gray-400 text-sm">
-              Desenvolvedor Full Stack apaixonado por criar experiências digitais inovadoras e impactantes.
+            <p className="text-slate-500 text-sm leading-relaxed">
+              Desenvolvedor Full Stack apaixonado por criar experiências digitais inovadoras.
             </p>
           </div>
 
-          {/* Links */}
           <div>
-            <h3 className="text-lg font-semibold text-gray-100 mb-4">Links Rápidos</h3>
+            <h3 className="text-sm font-medium text-slate-300 mb-4">Navegação</h3>
             <ul className="space-y-2 text-sm">
-              <li>
-                <a href="#projetos" className="text-gray-400 hover:text-purple-400 transition-colors">
-                  Projetos
-                </a>
-              </li>
-              <li>
-                <a href="#habilidades" className="text-gray-400 hover:text-purple-400 transition-colors">
-                  Habilidades
-                </a>
-              </li>
-              <li>
-                <a href="#insignias" className="text-gray-400 hover:text-purple-400 transition-colors">
-                  Insígnias
-                </a>
-              </li>
-              <li>
-                <a href="#contato" className="text-gray-400 hover:text-purple-400 transition-colors">
-                  Contato
-                </a>
-              </li>
+              {[
+                { label: "Projetos", href: "#projetos" },
+                { label: "Habilidades", href: "#habilidades" },
+                { label: "Insígnias", href: "#insignias" },
+                { label: "Contato", href: "#contato" },
+              ].map((link) => (
+                <li key={link.href}>
+                  <button
+                    onClick={() => handleNav(link.href)}
+                    className="text-slate-500 hover:text-slate-300 transition-colors"
+                  >
+                    {link.label}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Social */}
           <div>
-            <h3 className="text-lg font-semibold text-gray-100 mb-4">Redes Sociais</h3>
-            <div className="flex gap-4">
-              <a 
-                href="#" 
-                className="p-2 rounded-lg bg-gray-800 hover:bg-purple-600 transition-colors text-gray-400 hover:text-white"
-              >
-                <Github className="w-5 h-5" />
-              </a>
-              <a 
-                href="#" 
-                className="p-2 rounded-lg bg-gray-800 hover:bg-cyan-600 transition-colors text-gray-400 hover:text-white"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a 
-                href="#" 
-                className="p-2 rounded-lg bg-gray-800 hover:bg-pink-600 transition-colors text-gray-400 hover:text-white"
-              >
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a 
-                href="#" 
-                className="p-2 rounded-lg bg-gray-800 hover:bg-red-600 transition-colors text-gray-400 hover:text-white"
-              >
-                <Mail className="w-5 h-5" />
-              </a>
+            <h3 className="text-sm font-medium text-slate-300 mb-4">Redes Sociais</h3>
+            <div className="flex gap-3">
+              {[
+                { Icon: Github, href: "#", label: "GitHub" },
+                { Icon: Linkedin, href: "#", label: "LinkedIn" },
+                { Icon: Twitter, href: "#", label: "Twitter" },
+                { Icon: Mail, href: "#", label: "Email" },
+              ].map(({ Icon, href, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  aria-label={label}
+                  className="p-2 rounded-lg bg-slate-800/60 hover:bg-slate-700/60 border border-white/[0.06] hover:border-white/[0.12] transition-colors text-slate-500 hover:text-slate-200"
+                >
+                  <Icon className="w-4 h-4" />
+                </a>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="pt-8 border-t border-gray-800">
-          <p className="text-center text-gray-400 text-sm flex items-center justify-center gap-1">
-            © 2026 Seu Nome. Feito com <Heart className="w-4 h-4 text-red-500 fill-red-500" /> e muito café ☕
+        <div className="pt-8 border-t border-white/[0.06]">
+          <p className="text-center text-slate-600 text-xs">
+            © 2026 Seu Nome. Todos os direitos reservados.
           </p>
         </div>
       </div>

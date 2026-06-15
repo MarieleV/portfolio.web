@@ -1,4 +1,3 @@
-import { Badge } from "./ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { Award, Star, Trophy, Zap, Target, Rocket } from "lucide-react";
 
@@ -7,71 +6,85 @@ const badges = [
     icon: Trophy,
     title: "Top Contributor",
     description: "100+ contribuições em projetos open source",
-    color: "from-yellow-400 to-orange-500",
+    iconColor: "text-amber-400",
+    iconBg: "bg-amber-950/50 border border-amber-800/30",
   },
   {
     icon: Star,
     title: "5 Anos de Experiência",
     description: "Desenvolvendo soluções inovadoras",
-    color: "from-purple-400 to-pink-500",
+    iconColor: "text-violet-400",
+    iconBg: "bg-violet-950/50 border border-violet-800/30",
   },
   {
     icon: Zap,
     title: "Performance Expert",
     description: "Otimização e velocidade de aplicações",
-    color: "from-cyan-400 to-blue-500",
+    iconColor: "text-sky-400",
+    iconBg: "bg-sky-950/50 border border-sky-800/30",
   },
   {
     icon: Award,
     title: "Certificado AWS",
     description: "Solutions Architect Associate",
-    color: "from-green-400 to-emerald-500",
+    iconColor: "text-emerald-400",
+    iconBg: "bg-emerald-950/50 border border-emerald-800/30",
   },
   {
     icon: Target,
     title: "Projetos Entregues",
     description: "50+ projetos completados com sucesso",
-    color: "from-red-400 to-pink-500",
+    iconColor: "text-rose-400",
+    iconBg: "bg-rose-950/50 border border-rose-800/30",
   },
   {
     icon: Rocket,
     title: "Innovation Leader",
     description: "Implementação de novas tecnologias",
-    color: "from-indigo-400 to-purple-500",
+    iconColor: "text-indigo-400",
+    iconBg: "bg-indigo-950/50 border border-indigo-800/30",
   },
+];
+
+const stats = [
+  { value: "50+", label: "Projetos" },
+  { value: "100K+", label: "Linhas de Código" },
+  { value: "30+", label: "Clientes Satisfeitos" },
+  { value: "5+", label: "Anos de Experiência" },
 ];
 
 export function Badges() {
   return (
-    <section className="py-20 px-4 bg-black">
+    <section id="insignias" className="py-24 px-4 bg-[#020617]">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400 bg-clip-text text-transparent">
-            Insígnias & Conquistas
+          <p className="text-xs font-semibold tracking-[0.25em] text-indigo-400 uppercase mb-3">
+            Conquistas
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-100">
+            Insígnias & Marcos
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-slate-400 text-base max-w-xl mx-auto">
             Reconhecimentos e marcos alcançados na jornada profissional
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {badges.map((badge, index) => {
             const Icon = badge.icon;
             return (
-              <Card 
-                key={index} 
-                className="bg-gradient-to-br from-gray-900 to-gray-800 border-gray-700 hover:border-gray-600 transition-all hover:shadow-xl hover:scale-105 duration-300"
+              <Card
+                key={index}
+                className="bg-slate-900/50 border-white/[0.07] hover:border-white/[0.14] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-indigo-950/30"
               >
-                <CardHeader className="text-center">
+                <CardHeader className="text-center pb-3">
                   <div className="mx-auto mb-4">
-                    <div className={`w-20 h-20 rounded-full bg-gradient-to-br ${badge.color} p-0.5`}>
-                      <div className="w-full h-full rounded-full bg-gray-900 flex items-center justify-center">
-                        <Icon className="w-10 h-10 text-white" />
-                      </div>
+                    <div className={`w-16 h-16 rounded-2xl ${badge.iconBg} flex items-center justify-center`}>
+                      <Icon className={`w-8 h-8 ${badge.iconColor}`} />
                     </div>
                   </div>
-                  <CardTitle className="text-xl text-gray-100">{badge.title}</CardTitle>
-                  <CardDescription className="text-gray-400">
+                  <CardTitle className="text-base font-semibold text-slate-100">{badge.title}</CardTitle>
+                  <CardDescription className="text-slate-500 text-sm">
                     {badge.description}
                   </CardDescription>
                 </CardHeader>
@@ -80,32 +93,17 @@ export function Badges() {
           })}
         </div>
 
-        {/* Additional Stats */}
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div className="text-center p-6 bg-gradient-to-br from-purple-900/30 to-transparent border border-purple-500/30 rounded-lg">
-            <div className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-2">
-              50+
+        {/* Stats */}
+        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4">
+          {stats.map((stat) => (
+            <div
+              key={stat.label}
+              className="text-center p-6 rounded-xl bg-slate-900/50 border border-white/[0.07]"
+            >
+              <div className="text-3xl font-bold text-slate-100 mb-1">{stat.value}</div>
+              <div className="text-slate-500 text-sm">{stat.label}</div>
             </div>
-            <div className="text-gray-400">Projetos</div>
-          </div>
-          <div className="text-center p-6 bg-gradient-to-br from-cyan-900/30 to-transparent border border-cyan-500/30 rounded-lg">
-            <div className="text-4xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-2">
-              100K+
-            </div>
-            <div className="text-gray-400">Linhas de Código</div>
-          </div>
-          <div className="text-center p-6 bg-gradient-to-br from-green-900/30 to-transparent border border-green-500/30 rounded-lg">
-            <div className="text-4xl font-bold bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent mb-2">
-              30+
-            </div>
-            <div className="text-gray-400">Clientes Satisfeitos</div>
-          </div>
-          <div className="text-center p-6 bg-gradient-to-br from-orange-900/30 to-transparent border border-orange-500/30 rounded-lg">
-            <div className="text-4xl font-bold bg-gradient-to-r from-orange-400 to-red-400 bg-clip-text text-transparent mb-2">
-              5+
-            </div>
-            <div className="text-gray-400">Anos de Experiência</div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

@@ -1,6 +1,5 @@
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card";
 import { Badge } from "./ui/badge";
-import { Button } from "./ui/button";
 import { ExternalLink, Github } from "lucide-react";
 
 const projects = [
@@ -44,68 +43,63 @@ const projects = [
 
 export function Projects() {
   return (
-    <section className="py-20 px-4 bg-gradient-to-b from-black via-purple-950/20 to-black">
+    <section id="projetos" className="py-24 px-4 bg-[#020617]">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+          <p className="text-xs font-semibold tracking-[0.25em] text-indigo-400 uppercase mb-3">
+            Trabalhos
+          </p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-100">
             Projetos Estelares
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Uma constelação de projetos que demonstram minhas habilidades e paixão por tecnologia
+          <p className="text-slate-400 text-base max-w-xl mx-auto">
+            Uma constelação de projetos que demonstram habilidades e paixão por tecnologia
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {projects.map((project, index) => (
-            <Card 
-              key={index} 
-              className="bg-gray-900/50 border-purple-500/30 hover:border-purple-500/60 transition-all hover:shadow-lg hover:shadow-purple-500/20 backdrop-blur-sm"
+            <Card
+              key={index}
+              className="bg-slate-900/60 border-white/[0.07] hover:border-white/[0.14] transition-all hover:shadow-xl hover:shadow-indigo-950/40 backdrop-blur-sm overflow-hidden"
             >
-              <div 
-                className="h-48 bg-cover bg-center rounded-t-lg"
+              <div
+                className="h-44 bg-cover bg-center"
                 style={{ backgroundImage: `url(${project.image})` }}
               >
-                <div className="w-full h-full bg-gradient-to-t from-gray-900 to-transparent rounded-t-lg"></div>
+                <div className="w-full h-full bg-gradient-to-t from-slate-900 via-slate-900/30 to-transparent" />
               </div>
-              
-              <CardHeader>
-                <CardTitle className="text-purple-300">{project.title}</CardTitle>
-                <CardDescription className="text-gray-400">
+
+              <CardHeader className="pb-2">
+                <CardTitle className="text-slate-100 text-base font-semibold">{project.title}</CardTitle>
+                <CardDescription className="text-slate-500 text-sm leading-relaxed">
                   {project.description}
                 </CardDescription>
               </CardHeader>
-              
-              <CardContent>
-                <div className="flex flex-wrap gap-2">
+
+              <CardContent className="pb-3">
+                <div className="flex flex-wrap gap-1.5">
                   {project.tags.map((tag, i) => (
-                    <Badge 
-                      key={i} 
-                      variant="secondary" 
-                      className="bg-purple-500/20 text-purple-300 border-purple-500/30"
+                    <Badge
+                      key={i}
+                      variant="secondary"
+                      className="bg-indigo-950/60 text-indigo-300 border border-indigo-800/40 text-xs font-normal"
                     >
                       {tag}
                     </Badge>
                   ))}
                 </div>
               </CardContent>
-              
-              <CardFooter className="gap-2">
-                <Button 
-                  variant="outline" 
-                  size="sm" 
-                  className="flex-1 border-purple-500/30 text-purple-400 hover:bg-purple-500/10"
-                >
-                  <Github className="w-4 h-4 mr-2" />
+
+              <CardFooter className="gap-2 pt-0">
+                <button className="flex-1 flex items-center justify-center gap-2 py-2 text-xs rounded-md border border-white/[0.08] text-slate-400 hover:text-slate-100 hover:border-white/20 transition-colors">
+                  <Github className="w-3.5 h-3.5" />
                   Código
-                </Button>
-                <Button 
-                  variant="outline" 
-                  size="sm" 
-                  className="flex-1 border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/10"
-                >
-                  <ExternalLink className="w-4 h-4 mr-2" />
+                </button>
+                <button className="flex-1 flex items-center justify-center gap-2 py-2 text-xs rounded-md border border-white/[0.08] text-slate-400 hover:text-slate-100 hover:border-white/20 transition-colors">
+                  <ExternalLink className="w-3.5 h-3.5" />
                   Demo
-                </Button>
+                </button>
               </CardFooter>
             </Card>
           ))}
