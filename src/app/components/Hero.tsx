@@ -116,20 +116,13 @@ export function Hero() {
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-3xl mx-auto pt-16">
-        <div className="mb-8">
-          <div className="w-28 h-28 mx-auto mb-6 rounded-full bg-gradient-to-br from-indigo-500 via-violet-500 to-sky-400 p-[2px]">
-            <div className="w-full h-full rounded-full bg-[#020617] flex items-center justify-center text-5xl">
-              🚀
-            </div>
-          </div>
-        </div>
-
+        
         <p className="text-xs font-semibold tracking-[0.25em] text-indigo-400 uppercase mb-4">
           Desenvolvedor Full Stack
         </p>
 
         <h1 className="text-5xl md:text-7xl font-bold mb-5 text-slate-50 leading-tight tracking-tight">
-          Seu Nome
+          Mariele Vieira
         </h1>
 
         <p className="text-base md:text-lg text-slate-400 mb-10 max-w-xl mx-auto leading-relaxed">

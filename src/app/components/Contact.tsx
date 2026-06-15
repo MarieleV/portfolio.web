@@ -78,21 +78,7 @@ export function Contact() {
                   </div>
                   <div>
                     <h3 className="text-sm font-medium text-slate-200 mb-0.5">Email</h3>
-                    <p className="text-slate-500 text-sm">seuemail@exemplo.com</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-slate-900/50 border-white/[0.07] backdrop-blur-sm">
-              <CardContent className="pt-5">
-                <div className="flex items-start gap-4">
-                  <div className="p-2.5 rounded-lg bg-sky-950/60 border border-sky-800/40">
-                    <Phone className="w-5 h-5 text-sky-400" />
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-medium text-slate-200 mb-0.5">Telefone</h3>
-                    <p className="text-slate-500 text-sm">+55 (11) 99999-9999</p>
+                    <p className="text-slate-500 text-sm">silvamariele797@gmail.com</p>
                   </div>
                 </div>
               </CardContent>
@@ -106,7 +92,7 @@ export function Contact() {
                   </div>
                   <div>
                     <h3 className="text-sm font-medium text-slate-200 mb-0.5">Localização</h3>
-                    <p className="text-slate-500 text-sm">São Paulo, Brasil</p>
+                    <p className="text-slate-500 text-sm">Joinville - SC, Brasil</p>
                   </div>
                 </div>
               </CardContent>
